@@ -26,10 +26,8 @@ function onFormSubmit(event) {
 
   if (refs.input.value === '' || refs.textarea.value === '') {
       return alert('Заповніть всі поля');
-  }
-  
-  event.currentTarget.reset();
-  
+  }  
+  event.currentTarget.reset();  
   console.log(formData);
   
   if (
@@ -40,7 +38,6 @@ function onFormSubmit(event) {
   }
   
   formData = {};
-
   localStorage.removeItem(STORAGE_KEY);
 }
 
