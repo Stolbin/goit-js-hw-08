@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "browserlist": "^1.0.1",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.11.0",
     "vimeo": "^2.1.1"
