@@ -13,7 +13,7 @@ let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInput, 500));
 
-saveMessage();
+// saveMessage();
 
 function onInput(event) {
   formData[event.target.name] = event.target.value.trim();
@@ -31,18 +31,19 @@ function onFormSubmit(event) {
       refs.input.value === refs.input.value ||
       refs.textarea.value === refs.textarea.value
     ) {
-      return alert('Дякуємо');
+    return alert('Дякуємо');
   }  
   formData = {};
   localStorage.removeItem(STORAGE_KEY);
 }
-function saveMessage() {
-  const savedInput = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  if (savedInput) {
-    refs.input.value = savedInput.email || '';
-    refs.textarea.value = savedInput.message || '';
-  }
-}
+// function saveMessage() {
+//   const savedInput = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+//   if (savedInput) {
+//     refs.input.value = savedInput.email || '';
+//     refs.textarea.value = savedInput.message || '';
+//   }
+// }
 
 
