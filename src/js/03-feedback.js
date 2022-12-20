@@ -13,7 +13,7 @@ let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInput, 500));
 
-// saveMessage();
+saveMessage();
 
 function onInput(event) {
   formData[event.target.name] = event.target.value.trim();
@@ -22,28 +22,25 @@ function onInput(event) {
 }
 function onFormSubmit(event) {
   event.preventDefault();
+
   if (refs.input.value === '' || refs.textarea.value === '') {
       return alert('Заповніть всі поля');
-  }  
+  }
+
   event.currentTarget.reset();  
-  console.log(formData);  
-  if (
-      refs.input.value === refs.input.value ||
-      refs.textarea.value === refs.textarea.value
-    ) {
-    return alert('Дякуємо');
-  }  
+  console.log(formData); 
+
   formData = {};
-  localStorage.removeItem(STORAGE_KEY);
+  // localStorage.removeItem(STORAGE_KEY);
 }
 
-// function saveMessage() {
-//   const savedInput = JSON.parse(localStorage.getItem(STORAGE_KEY));
+function saveMessage() {
+  const savedInput = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-//   if (savedInput) {
-//     refs.input.value = savedInput.email || '';
-//     refs.textarea.value = savedInput.message || '';
-//   }
-// }
+  if (savedInput) {
+    refs.input.value = savedInput.email || '';
+    refs.textarea.value = savedInput.message || '';
+  }
+}
 
 
