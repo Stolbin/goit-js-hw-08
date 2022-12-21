@@ -31,6 +31,7 @@ function onFormSubmit(event) {
   console.log(formData); 
 
   formData = {};
+  localStorage.removeItem(STORAGE_KEY);
 }
 
 function saveMessage() {
